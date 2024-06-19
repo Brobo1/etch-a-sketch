@@ -34,10 +34,14 @@ const randomColor = () => {
 createGrid(gridSize, cellSize);
 
 gridSizeBtn.addEventListener("click", () => {
-  if (gridInput.value !== "") {
+  if (
+    gridInput.value !== "" &&
+    gridInput.value >= 1 &&
+    gridInput.value <= 100
+  ) {
     createGrid(gridInput.value, cellSize * (gridSize / gridInput.value));
   } else {
-    alert("ENTER NOMBER BRUH");
+    alert("Enter number between 1 and 100");
   }
 });
 
@@ -57,7 +61,3 @@ container.addEventListener("mousemove", (e) => {
       : colorPicker.value;
   }
 });
-
-//TODO
-// - Darkening effect with opacity
-// - Set limit on max grid size
