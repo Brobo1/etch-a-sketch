@@ -20,7 +20,7 @@ body {
   box-sizing: border-box;
   width: 20px;
   height: 20px;
-  border: rgba(106, 106, 106, 0.05) solid 1px;
+  outline: rgba(106, 106, 106, 0.05) solid 1px;
 }
 
 #inputs {

@@ -18,7 +18,6 @@ const createGrid = (gridSize, cellSize) => {
       cells.className = "cell";
       cells.style.width = `${cellSize}px`;
       cells.style.height = `${cellSize}px`;
-      cells.draggable = false;
       cols.appendChild(cells);
     }
     container.appendChild(cols);
@@ -46,12 +45,13 @@ gridSizeBtn.addEventListener("click", () => {
   }
 });
 
-container.addEventListener("mouseover", (e) => {
+container.addEventListener("dragstart", (e) => e.preventDefault());
+
+container.addEventListener("mousemove", (e) => {
   const target = e.target;
-  console.log();
   if (target.className === "cell" && e.buttons) {
-    if (target.style.backgroundColor === "")
-      target.style.backgroundColor = randomColorCheckbox.checked
+    if (/*target.style.backgroundColor === ""*/ true)
+      target.style.background = randomColorCheckbox.checked
         ? randomColor()
         : colorPicker.value;
   }
