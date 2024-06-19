@@ -2,6 +2,7 @@ const container = document.getElementById("grid-container");
 const gridInput = document.getElementById("grid-input");
 const gridSizeBtn = document.getElementById("grid-size-btn");
 const colorPicker = document.getElementById("color-picker");
+const randomColorCheckbox = document.getElementById("random-checkbox");
 let cols;
 let cells;
 const gridSize = 32;
@@ -47,8 +48,11 @@ gridSizeBtn.addEventListener("click", () => {
 
 container.addEventListener("mouseover", (e) => {
   const target = e.target;
+  console.log();
   if (target.className === "cell" && e.buttons) {
     if (target.style.backgroundColor === "")
-      target.style.backgroundColor = colorPicker.value;
+      target.style.backgroundColor = randomColorCheckbox.checked
+        ? randomColor()
+        : colorPicker.value;
   }
 });
